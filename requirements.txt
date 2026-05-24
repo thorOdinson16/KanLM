@@ -1,0 +1,11 @@
+torch>=2.0
+transformers
+datasets
+tokenizers
+pandas
+pyarrow
+tqdm
+scikit-learn
+matplotlib
+seaborn
+sentencepiece

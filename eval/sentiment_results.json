@@ -1,0 +1,7 @@
+{
+  "accuracy": 0.735,
+  "f1_macro": 0.7349933748343709,
+  "num_train": 800,
+  "num_test": 200,
+  "note": "Labels derived from keyword matching on corpus sentences"
+}

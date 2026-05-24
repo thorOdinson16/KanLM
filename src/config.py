@@ -1,0 +1,37 @@
+"""All configuration in one place."""
+
+# Paths
+RAW_DIR = "data/raw"
+CLEANED_DIR = "data/cleaned"
+TOKENIZED_DIR = "data/tokenized"
+TOKENIZER_DIR = "tokenizer"
+CHECKPOINT_DIR = "checkpoints"
+EVAL_DIR = "eval"
+MODEL_DIR = "model"
+
+# Cleaning
+MIN_SENTENCE_LENGTH = 10
+MAX_SENTENCE_LENGTH = 400
+MIN_KANNADA_RATIO = 0.6
+LANG_CONFIDENCE_THRESHOLD = 0.8
+
+# Tokenizer
+VOCAB_SIZE = 12000
+MIN_TOKEN_FREQUENCY = 3
+
+# Model
+N_LAYER = 8
+N_HEAD = 8
+N_EMBD = 512
+BLOCK_SIZE = 512
+
+# Training
+BATCH_SIZE = 16
+GRADIENT_ACCUMULATION = 2
+LEARNING_RATE = 5e-4
+WARMUP_STEPS = 1000
+MAX_EPOCHS = 3
+WEIGHT_DECAY = 0.01
+GRAD_CLIP = 1.0
+EVAL_STEPS = 500
+SAVE_STEPS = 1000
