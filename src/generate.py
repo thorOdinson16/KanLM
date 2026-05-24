@@ -26,6 +26,7 @@ with open("eval/generated_samples.txt", "w", encoding="utf-8") as f:
             temperature=0.7,
             do_sample=True,
             top_p=0.9,
+            repetition_penalty=1.2,
             pad_token_id=tokenizer.pad_token_id,
         )
         generated = tokenizer.decode(outputs[0], skip_special_tokens=True)

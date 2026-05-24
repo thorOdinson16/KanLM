@@ -1,6 +1,7 @@
 """Analyze tokenizer fertility vs multilingual tokenizers."""
 import os
 import random
+import json
 from transformers import AutoTokenizer
 from tqdm import tqdm
 
@@ -57,3 +58,18 @@ improvement_xlmr = (fert_xlmr - fert_yours) / fert_xlmr * 100
 improvement_mbert = (fert_mbert - fert_yours) / fert_mbert * 100
 print(f"\nYour tokenizer is {improvement_xlmr:.1f}% more efficient than XLM-R")
 print(f"Your tokenizer is {improvement_mbert:.1f}% more efficient than mBERT")
+
+# Save results
+results = {
+    "your_bpe_fertility": round(fert_yours, 2),
+    "xlmr_fertility": round(fert_xlmr, 2),
+    "mbert_fertility": round(fert_mbert, 2),
+    "improvement_vs_xlmr_percent": round(improvement_xlmr, 1),
+    "improvement_vs_mbert_percent": round(improvement_mbert, 1),
+    "num_test_sentences": len(test_sentences),
+}
+
+os.makedirs("eval", exist_ok=True)
+with open("eval/fertility_analysis.json", "w") as f:
+    json.dump(results, f, indent=2)
+print("\nSaved to eval/fertility_analysis.json")

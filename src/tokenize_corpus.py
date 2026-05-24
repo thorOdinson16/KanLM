@@ -6,8 +6,9 @@ from transformers import AutoTokenizer
 from datasets import Dataset
 from tqdm import tqdm
 
-os.environ["HF_HOME"] = "C:/Users/AbhiDS/Documents/kanlm/.cache"
-os.environ["HF_DATASETS_CACHE"] = "C:/Users/AbhiDS/Documents/kanlm/.cache/datasets"
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+os.environ["HF_HOME"] = os.path.join(PROJECT_ROOT, ".cache")
+os.environ["HF_DATASETS_CACHE"] = os.path.join(PROJECT_ROOT, ".cache", "datasets")
 
 TOKENIZER_DIR = "tokenizer"
 CLEANED_DIR = "data/cleaned"

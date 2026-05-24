@@ -11,7 +11,8 @@ from datasets import load_from_disk
 from config import *
 
 def main():
-    os.environ["HF_HOME"] = "C:/Users/AbhiDS/Documents/kanlm/.cache"
+    PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    os.environ["HF_HOME"] = os.path.join(PROJECT_ROOT, ".cache")
 
     # Load data
     print("Loading data...")
