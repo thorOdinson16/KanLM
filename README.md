@@ -2,8 +2,6 @@
 
 A **31.6M parameter GPT-2 style autoregressive language model** trained entirely from scratch on Kannada text. Everything — data pipeline, BPE tokenizer, model weights — built from the ground up on a single NVIDIA RTX 5070.
 
-**No pretrained initialization. No fine-tuning. Pure Kannada.**
-
 ---
 
 ## Quick Start
