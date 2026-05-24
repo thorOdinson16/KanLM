@@ -1,7 +1,33 @@
-```markdown
 # Kannada GPT-2 Small (kannada-gpt2-32m)
 
 A **31.6M parameter GPT-2 style autoregressive language model** trained entirely from scratch on Kannada text. Everything — data pipeline, BPE tokenizer, model weights — built from the ground up on a single NVIDIA RTX 5070.
+
+**No pretrained initialization. No fine-tuning. Pure Kannada.**
+
+---
+
+## Quick Start
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model = AutoModelForCausalLM.from_pretrained("AbhiDS16/kannada-gpt2-32m")
+tokenizer = AutoTokenizer.from_pretrained("AbhiDS16/kannada-gpt2-32m")
+
+prompt = "ನಾನು ಇಂದು ಬೆಳಿಗ್ಗೆ"
+inputs = tokenizer(prompt, return_tensors="pt")
+outputs = model.generate(
+    **inputs,
+    max_new_tokens=80,
+    temperature=0.7,
+    do_sample=True,
+    top_p=0.9,
+    pad_token_id=tokenizer.pad_token_id,
+)
+print(tokenizer.decode(outputs[0], skip_special_tokens=True))
+```
+
+**[🤗 Model on HuggingFace](https://huggingface.co/AbhiDS16/kannada-gpt2-32m)** | **[💻 Code on GitHub](https://github.com/thorOdinson16/KanLM)**
 
 ---
 
@@ -313,23 +339,7 @@ python tests/test_model.py
 
 ---
 
-## Citation
-
-```bibtex
-@misc{kannada-gpt2-32m,
-  author = {Your Name},
-  title = {Kannada GPT-2 Small: A From-Scratch Language Model for Kannada},
-  year = {2026},
-  publisher = {HuggingFace},
-  howpublished = {\url{https://huggingface.co/your-username/kannada-gpt2-32m}},
-  note = {Trained entirely from scratch with custom BPE tokenizer}
-}
-```
-
----
-
 ## Acknowledgments
 
 - **CulturaX-Kn** ([Kannada-LLM-Labs](https://huggingface.co/datasets/Kannada-LLM-Labs/CulturaX-Kn)) for the curated Kannada dataset
 - **HuggingFace** for the transformers, tokenizers, and datasets libraries
-```
